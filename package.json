@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "JavaScript development environment by Ivan Lay",
   "scripts": {
-    "prestart": "node buildScripts/startMessage.js",
-    "start": "node buildScripts/srcServer.js",
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel security-check open:src",
+    "open:src": "babel-node buildScripts/srcServer.js",
     "security-check": "nsp check"
   },
   "author": "Ivan Lay",
